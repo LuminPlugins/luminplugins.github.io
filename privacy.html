@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Lumin Plugins</title>
+    <meta name="description" content="Privacy policy for Lumin Plugins Unity Asset Store packages and this website.">
+    <link rel="icon" type="image/png" href="assets/lumin_icon_256.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --orange-primary: #E8854A;
+            --orange-light: #F5A06A;
+            --dark-bg: #0E0E14;
+            --dark-card: #1C1C28;
+            --dark-border: #2A2A3A;
+            --text-primary: #E8E6E3;
+            --text-secondary: #9997A0;
+            --text-muted: #6B6876;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        nav {
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(232,133,74,0.08);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .nav-logo img { width: 36px; height: 36px; border-radius: 8px; }
+        .nav-logo span { font-weight: 700; font-size: 1.1rem; letter-spacing: 0.5px; }
+
+        .back {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .back:hover { color: var(--orange-primary); }
+
+        main {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 4rem 2rem 5rem;
+        }
+
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--orange-primary);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 0.75rem;
+        }
+
+        h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            margin-bottom: 0.5rem;
+        }
+
+        .updated { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem; }
+
+        .summary {
+            background: var(--dark-card);
+            border: 1px solid var(--dark-border);
+            border-left: 3px solid var(--orange-primary);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 2.5rem;
+            font-size: 1.05rem;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 2.25rem 0 0.75rem;
+        }
+
+        p, li {
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+            line-height: 1.75;
+            font-weight: 300;
+        }
+
+        p + p { margin-top: 0.85rem; }
+
+        ul { padding-left: 1.25rem; margin-top: 0.5rem; }
+        li { margin-bottom: 0.5rem; }
+        li strong, p strong { color: var(--text-primary); font-weight: 500; }
+
+        a { color: var(--orange-primary); text-decoration: none; }
+        a:hover { color: var(--orange-light); }
+
+        footer {
+            border-top: 1px solid var(--dark-border);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 640px) {
+            nav { padding: 0.8rem 1rem; }
+            main { padding: 2.5rem 1rem 4rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-logo">
+            <img src="assets/lumin_icon_256.png" alt="Lumin Plugins">
+            <span>Lumin Plugins</span>
+        </a>
+        <a href="index.html" class="back">← Back to site</a>
+    </nav>
+
+    <main>
+        <p class="section-label">// Privacy</p>
+        <h1>Privacy Policy</h1>
+        <p class="updated">Last updated: 19 October 2026</p>
+
+        <p class="summary">Lumin Plugins' Unity packages do not collect personal data, and they do not send anything to us. This website has no analytics and sets no cookies.</p>
+
+        <h2>Who we are</h2>
+        <p>Lumin Plugins is an independent publisher of Unity tools sold on the Unity Asset Store. For any privacy question, email <a href="mailto:pierceobrienbusiness@gmail.com">pierceobrienbusiness@gmail.com</a>.</p>
+
+        <h2>Our Unity packages</h2>
+        <p>Our packages contain no analytics, tracking or advertising code, and they never contact a Lumin Plugins server. We receive no data from the apps and games that use them, or from their players.</p>
+        <p>Some packages connect to services that <strong>you, the developer, choose and configure</strong>. That data goes directly between the player's device and those services, under your control and the provider's own privacy policy:</p>
+        <ul>
+            <li><strong>Background Audio for iOS:</strong> streams audio from the URLs you supply, and shows the track title and artist you pass in on the lock screen.</li>
+            <li><strong>Force Updater:</strong> downloads a version file from the address you set (your own host, Unity Remote Config or Firebase Remote Config) and keeps the last result on the device. With Unity Remote Config it may sign the player in anonymously to Unity Authentication if your game has no sign-in; you can turn this off.</li>
+            <li><strong>Review Kit:</strong> asks Apple or Google to show their review card. Session counts and timing data are stored on the device only (PlayerPrefs by default, or your own storage).</li>
+            <li><strong>Sign-In + Account Deletion:</strong> signs players in with Apple and Google, and passes the resulting tokens to the backend you choose (Firebase Auth, Unity Authentication or your own server). The name and email Apple shares on first sign-in are cached on the device. Account deletion removes data through your backend and revokes Apple tokens through your own endpoint.</li>
+            <li><strong>Live Activities &amp; Home Screen Widgets:</strong> shows content you provide on the Lock Screen and in widgets. Push tokens are handed to your code for use with your own server.</li>
+            <li><strong>Play Compliance Checker:</strong> an Editor-only tool. It reads your project and build files locally and makes no network requests of its own (its Docs buttons simply open a link in your browser).</li>
+        </ul>
+        <p>If you publish an app that uses these packages, you are responsible for your own app's privacy policy and store privacy declarations, including the services you connect.</p>
+
+        <h2>Purchases</h2>
+        <p>All purchases are handled by Unity through the Unity Asset Store. We never see your payment details. Unity's handling of your data is covered by <a href="https://unity.com/legal/privacy-policy" target="_blank" rel="noopener">Unity's privacy policy</a>.</p>
+
+        <h2>Support email</h2>
+        <p>If you email us, we use your email address and what you send only to reply and help with your request. We don't add you to a mailing list or share your messages.</p>
+
+        <h2>This website</h2>
+        <p>This site has no analytics, no advertising and no cookies. It is hosted on GitHub Pages, and fonts are loaded from Google Fonts. As with any website, these providers receive your IP address and browser details when you load a page. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub's privacy statement</a> and <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's privacy policy</a>.</p>
+
+        <h2>Changes</h2>
+        <p>If this policy changes, we'll update this page and the date at the top.</p>
+    </main>
+
+    <footer>&copy; 2026 Lumin Plugins. All rights reserved.</footer>
+</body>
+</html>

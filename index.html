@@ -130,6 +130,7 @@
             text-align: center;
             padding: 8rem 2rem 6rem;
             z-index: 1;
+            overflow: hidden;
         }
 
         .hero::before {
@@ -433,6 +434,112 @@
             color: var(--text-muted);
         }
 
+        /* ── Plugin index, icons, screenshots ── */
+        .plugin-index {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 2rem;
+        }
+
+        .plugin-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.85rem 0.4rem 0.4rem;
+            background: var(--dark-surface);
+            border: 1px solid var(--dark-border);
+            border-radius: 10px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .plugin-chip:hover { border-color: rgba(232,133,74,0.4); color: var(--text-primary); }
+
+        .plugin-chip img { width: 28px; height: 28px; border-radius: 7px; }
+
+        .plugin-card { scroll-margin-top: 90px; }
+
+        .plugin-head {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .plugin-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 13px;
+            flex-shrink: 0;
+        }
+
+        .badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .badge-row .plugin-badge { margin-bottom: 0; }
+
+        .plugin-badge.badge-soon {
+            color: var(--text-secondary);
+            background: var(--dark-surface);
+            border-color: var(--dark-border);
+        }
+
+        .plugin-badge.badge-live {
+            color: #7BD88F;
+            background: rgba(123,216,143,0.08);
+            border-color: rgba(123,216,143,0.25);
+        }
+
+        .plugin-req {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-soon {
+            background: var(--dark-surface);
+            color: var(--text-secondary);
+            border: 1px dashed rgba(232,133,74,0.45);
+            cursor: default;
+        }
+
+        .phone-shot {
+            position: relative;
+            width: 100%;
+            max-width: 250px;
+            padding: 7px;
+            background: #1A1A24;
+            border: 1px solid var(--dark-border);
+            border-radius: 34px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+        }
+
+        .phone-shot img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 27px;
+        }
+
+        .cover-shot {
+            position: relative;
+            display: block;
+            width: 100%;
+            max-width: 440px;
+            height: auto;
+            border-radius: 14px;
+            border: 1px solid var(--dark-border);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+        }
+
         /* ── About ── */
         #about {
             border-top: 1px solid var(--dark-border);
@@ -595,6 +702,7 @@
             .plugin-info { padding: 2rem; }
             .plugin-visual { padding: 2rem; }
             .footer-inner { flex-direction: column; gap: 1rem; }
+            .phone-shot { max-width: 220px; }
         }
     </style>
 </head>
@@ -632,65 +740,252 @@
             <h2 class="section-title fade-up">Asset Store Collection</h2>
             <p class="section-desc fade-up">Each plugin solves a specific pain point we hit during development. Thoroughly documented, with example scenes included.</p>
 
-            <!-- Product: Background Audio -->
-            <div class="plugin-card fade-up">
+            <!--
+                ASSET STORE LINKS
+                Packages marked "Coming soon" have no store page yet. Each one has a comment
+                "ASSET_STORE_URL_TODO(<key>)" next to its button. When the package goes live, replace the
+                <span class="btn btn-soon"> with:
+                <a href="ASSET_STORE_URL" target="_blank" rel="noopener" class="btn btn-primary">View on Asset Store →</a>
+                and change the "Coming soon" badge to the platform badge only.
+            -->
+            <div class="plugin-index fade-up" role="navigation" aria-label="Plugin list">
+                <a href="#background-audio-ios" class="plugin-chip"><img src="assets/plugins/background-audio-ios-icon.png" alt="">Background Audio for iOS</a>
+                <a href="#force-updater" class="plugin-chip"><img src="assets/plugins/force-updater-icon.png" alt="">Force Updater</a>
+                <a href="#review-kit" class="plugin-chip"><img src="assets/plugins/review-kit-icon.png" alt="">Review Kit</a>
+                <a href="#sign-in" class="plugin-chip"><img src="assets/plugins/sign-in-icon.png" alt="">Sign-In + Account Deletion</a>
+                <a href="#live-activities" class="plugin-chip"><img src="assets/plugins/live-activities-icon.png" alt="">Live Activities &amp; Widgets</a>
+                <a href="#play-compliance" class="plugin-chip"><img src="assets/plugins/play-compliance-icon.png" alt="">Play Compliance Checker</a>
+            </div>
+
+            <!-- Product: Background Audio for iOS (live, v1.0.1 update pending) -->
+            <div class="plugin-card fade-up" id="background-audio-ios">
                 <div class="plugin-card-inner">
                     <div class="plugin-info">
-                        <div class="plugin-badge">
-                            <span>●</span> iOS
+                        <div class="plugin-head">
+                            <img src="assets/plugins/background-audio-ios-icon.png" alt="" class="plugin-icon">
+                            <div class="badge-row">
+                                <span class="plugin-badge"><span>●</span> iOS</span>
+                                <span class="plugin-badge badge-live">Available now</span>
+                            </div>
                         </div>
                         <h3 class="plugin-title">Background Audio for iOS</h3>
-                        <p class="plugin-desc">Keep audio playing when the screen locks. Full lock-screen and Control Center media controls with play, pause, seek, and stop. Built on AVPlayer and MPRemoteCommandCenter — the same stack used by Apple Music and Spotify on iOS.</p>
+                        <p class="plugin-desc">Your Unity app's audio stops the moment the iPhone locks. This fixes it with one line of C#. Playback runs through Apple's native AVPlayer, so it keeps going when the screen locks or the user switches apps, with real lock screen and Control Center controls, just like Podcasts or Spotify.</p>
                         <div class="feature-tags">
-                            <span class="feature-tag">Lock Screen Controls</span>
-                            <span class="feature-tag">Control Center</span>
-                            <span class="feature-tag">AVPlayer</span>
-                            <span class="feature-tag">Streaming & Local Files</span>
-                            <span class="feature-tag">Headphone Unplug Detection</span>
-                            <span class="feature-tag">Simple C# API</span>
+                            <span class="feature-tag">Lock Screen &amp; Control Center</span>
+                            <span class="feature-tag">Seek &amp; ±30 s Skip</span>
+                            <span class="feature-tag">Streaming &amp; Local Files</span>
+                            <span class="feature-tag">Call &amp; Headphone Interruptions</span>
+                            <span class="feature-tag">Zero Xcode Setup</span>
+                            <span class="feature-tag">Unity 2022.3 &amp; Unity 6</span>
                         </div>
+                        <p class="plugin-req">New in 1.0.1: Unity 2022.3 LTS support, works with Domain Reload disabled, and a new UI Player demo scene built with TextMeshPro. Requires iOS 14+.</p>
                         <div class="plugin-price">
-                            <span class="price-amount">€18.39</span>
-                            <span class="price-note">one-time purchase</span>
+                            <span class="price-note">One-time purchase. See the current price on the Asset Store.</span>
                         </div>
                         <div>
                             <a href="https://assetstore.unity.com/packages/tools/audio/background-audio-for-ios-371508" target="_blank" rel="noopener" class="btn btn-primary">View on Asset Store →</a>
                         </div>
                     </div>
                     <div class="plugin-visual">
-                        <div class="code-preview">
-                            <div class="code-header">
-                                <span class="code-dot r"></span>
-                                <span class="code-dot y"></span>
-                                <span class="code-dot g"></span>
-                                <span class="code-filename">YourAudioManager.cs</span>
-                            </div>
-                            <div class="code-body">
-<span class="cmt">// Start background audio — that's it</span>
-<span class="typ">IOSBackgroundAudio</span>.<span class="fn">StartBackground</span>(
-    audioUrl,
-    <span class="str">"My Track"</span>,
-    <span class="str">"Artist Name"</span>,
-    durationMs
-);
-
-<span class="cmt">// Control from anywhere</span>
-<span class="typ">IOSBackgroundAudio</span>.<span class="fn">Pause</span>();
-<span class="typ">IOSBackgroundAudio</span>.<span class="fn">Play</span>();
-<span class="typ">IOSBackgroundAudio</span>.<span class="fn">Seek</span>(<span class="num">30000</span>);
-<span class="typ">IOSBackgroundAudio</span>.<span class="fn">Stop</span>();
-
-<span class="cmt">// Receive progress callbacks</span>
-<span class="kw">public void</span> <span class="fn">OnNativeProgress</span>(<span class="typ">string</span> data) {
-    <span class="cmt">// pos | duration | isPlaying</span>
-    <span class="cmt">// Update your UI here</span>
-}
-                            </div>
-                        </div>
+                        <figure class="phone-shot">
+                            <img src="assets/plugins/background-audio-ios-demo.jpg" alt="Background Audio demo scene on iPhone, playing a track" loading="lazy" width="414" height="900">
+                        </figure>
                     </div>
                 </div>
             </div>
 
+            <!-- Product: Force Updater -->
+            <div class="plugin-card fade-up" id="force-updater">
+                <div class="plugin-card-inner">
+                    <div class="plugin-info">
+                        <div class="plugin-head">
+                            <img src="assets/plugins/force-updater-icon.png" alt="" class="plugin-icon">
+                            <div class="badge-row">
+                                <span class="plugin-badge"><span>●</span> iOS &amp; Android</span>
+                                <span class="plugin-badge badge-soon">Coming soon</span>
+                            </div>
+                        </div>
+                        <h3 class="plugin-title">Force Updater</h3>
+                        <p class="plugin-desc">Shipped a critical fix? Make sure every player is on it. Force Updater checks the installed version against a minimum you set remotely. Builds that are too old get a blocking "Update required" screen with a button straight to the App Store or Google Play, or a dismissable "recommended" prompt. Change the minimum at any time, with no app resubmission.</p>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Required &amp; Recommended Tiers</span>
+                            <span class="feature-tag">JSON, Unity Remote Config or Firebase</span>
+                            <span class="feature-tag">Reads the Real Build Version</span>
+                            <span class="feature-tag">Offline-Safe Cache</span>
+                            <span class="feature-tag">Re-check on Resume</span>
+                            <span class="feature-tag">Editor Simulation</span>
+                        </div>
+                        <p class="plugin-req">Unity 2022.3 or newer (Unity 6 supported). No third-party SDK bundled: host a small JSON file, or plug in Unity Remote Config or Firebase.</p>
+                        <div class="plugin-price">
+                            <span class="price-amount">$14.99</span>
+                            <span class="price-note">planned launch price, one-time purchase</span>
+                        </div>
+                        <div>
+                            <!-- ASSET_STORE_URL_TODO(force-updater): no store page yet -->
+                            <span class="btn btn-soon">Coming soon to the Unity Asset Store</span>
+                        </div>
+                    </div>
+                    <div class="plugin-visual">
+                        <figure class="phone-shot">
+                            <img src="assets/plugins/force-updater-demo.jpg" alt="Force Updater demo scene on iPhone, showing the update prompt" loading="lazy" width="414" height="900">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product: Review Kit -->
+            <div class="plugin-card fade-up" id="review-kit">
+                <div class="plugin-card-inner">
+                    <div class="plugin-info">
+                        <div class="plugin-head">
+                            <img src="assets/plugins/review-kit-icon.png" alt="" class="plugin-icon">
+                            <div class="badge-row">
+                                <span class="plugin-badge"><span>●</span> iOS &amp; Android</span>
+                                <span class="plugin-badge badge-soon">Coming soon</span>
+                            </div>
+                        </div>
+                        <h3 class="plugin-title">Review Kit</h3>
+                        <p class="plugin-desc">Ask for reviews at the right moment, the way Apple and Google allow. Review Kit shows the native review card on iOS and Android, but only when your timing rules say the player is ready: enough sessions, enough days, enough positive moments, and not too often. Test the whole flow in the Editor with a simulated card and a rules debugger.</p>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Native Review Card</span>
+                            <span class="feature-tag">Smart Timing Rules</span>
+                            <span class="feature-tag">Rules Debugger</span>
+                            <span class="feature-tag">Editor Simulated Card</span>
+                            <span class="feature-tag">"Rate Us" Store Links</span>
+                            <span class="feature-tag">No External Dependency Manager</span>
+                        </div>
+                        <p class="plugin-req">Policy-safe by design: no "Enjoying the app?" pre-prompt and no review gating. Unity 2022.3 or newer (Unity 6 supported).</p>
+                        <div class="plugin-price">
+                            <span class="price-amount">$14.99</span>
+                            <span class="price-note">planned price, one-time purchase</span>
+                        </div>
+                        <div>
+                            <!-- ASSET_STORE_URL_TODO(review-kit): no store page yet -->
+                            <span class="btn btn-soon">Coming soon to the Unity Asset Store</span>
+                        </div>
+                    </div>
+                    <div class="plugin-visual">
+                        <figure class="phone-shot">
+                            <img src="assets/plugins/review-kit-demo.jpg" alt="Review Kit demo scene on iPhone" loading="lazy" width="414" height="900">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product: Sign-In + Account Deletion -->
+            <div class="plugin-card fade-up" id="sign-in">
+                <div class="plugin-card-inner">
+                    <div class="plugin-info">
+                        <div class="plugin-head">
+                            <img src="assets/plugins/sign-in-icon.png" alt="" class="plugin-icon">
+                            <div class="badge-row">
+                                <span class="plugin-badge"><span>●</span> iOS &amp; Android</span>
+                                <span class="plugin-badge badge-soon">Coming soon</span>
+                            </div>
+                        </div>
+                        <h3 class="plugin-title">Sign-In + Account Deletion</h3>
+                        <p class="plugin-desc">Native sign-in, and the account deletion the stores require. Sign in with Google through Android Credential Manager (and the system browser on iOS), Sign in with Apple through AuthenticationServices, and a resumable account deletion flow with Apple token revocation. Works with Firebase Auth, Unity Authentication or your own server.</p>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Sign in with Google</span>
+                            <span class="feature-tag">Sign in with Apple</span>
+                            <span class="feature-tag">Resumable Account Deletion</span>
+                            <span class="feature-tag">Apple Token Revocation</span>
+                            <span class="feature-tag">Firebase, Unity Auth or HTTP</span>
+                            <span class="feature-tag">Editor Mock Provider</span>
+                        </div>
+                        <p class="plugin-req">Needs a Google Cloud project with OAuth clients, an Apple Developer account, and a small HTTPS endpoint for Apple token revocation (templates included). Unity 2022.3 or newer.</p>
+                        <div class="plugin-price">
+                            <span class="price-amount">$24.99</span>
+                            <span class="price-note">planned price, one-time purchase</span>
+                        </div>
+                        <div>
+                            <!-- ASSET_STORE_URL_TODO(sign-in): no store page yet -->
+                            <span class="btn btn-soon">Coming soon to the Unity Asset Store</span>
+                        </div>
+                    </div>
+                    <div class="plugin-visual">
+                        <figure class="phone-shot">
+                            <img src="assets/plugins/sign-in-demo.jpg" alt="Sign-In demo scene on iPhone, signed out" loading="lazy" width="414" height="900">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product: Live Activities & Home Screen Widgets -->
+            <div class="plugin-card fade-up" id="live-activities">
+                <div class="plugin-card-inner">
+                    <div class="plugin-info">
+                        <div class="plugin-head">
+                            <img src="assets/plugins/live-activities-icon.png" alt="" class="plugin-icon">
+                            <div class="badge-row">
+                                <span class="plugin-badge"><span>●</span> iOS</span>
+                                <span class="plugin-badge badge-soon">Coming soon</span>
+                            </div>
+                        </div>
+                        <h3 class="plugin-title">Live Activities &amp; Home Screen Widgets</h3>
+                        <p class="plugin-desc">Put your game on the Lock Screen, in the Dynamic Island and on the Home Screen, from C#. Start, update and end Live Activities and drive Home Screen widgets with a few lines of code. The widget extension target, App Group and Info.plist keys are added to the exported Xcode project for you, with ready-made SwiftUI layouts. No third-party service or subscription.</p>
+                        <div class="feature-tags">
+                            <span class="feature-tag">4 Live Activity Templates</span>
+                            <span class="feature-tag">3 Home Screen Widgets</span>
+                            <span class="feature-tag">Automatic Xcode Setup</span>
+                            <span class="feature-tag">Push-Ready Tokens</span>
+                            <span class="feature-tag">Editable SwiftUI</span>
+                            <span class="feature-tag">Editor Simulation</span>
+                        </div>
+                        <p class="plugin-req">iOS 16.2+ for Live Activities, iOS 17+ for widgets. Building needs a Mac with Xcode 16 and a paid Apple Developer account. Unity 2022.3 or newer.</p>
+                        <div class="plugin-price">
+                            <span class="price-amount">$39.99</span>
+                            <span class="price-note">planned price, one-time purchase</span>
+                        </div>
+                        <div>
+                            <!-- ASSET_STORE_URL_TODO(live-activities): no store page yet -->
+                            <span class="btn btn-soon">Coming soon to the Unity Asset Store</span>
+                        </div>
+                    </div>
+                    <div class="plugin-visual">
+                        <figure class="phone-shot">
+                            <img src="assets/plugins/live-activities-demo.jpg" alt="A countdown Live Activity on the iPhone Lock Screen" loading="lazy" width="414" height="900">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product: Play Compliance Checker -->
+            <div class="plugin-card fade-up" id="play-compliance">
+                <div class="plugin-card-inner">
+                    <div class="plugin-info">
+                        <div class="plugin-head">
+                            <img src="assets/plugins/play-compliance-icon.png" alt="" class="plugin-icon">
+                            <div class="badge-row">
+                                <span class="plugin-badge"><span>●</span> Android · Editor</span>
+                                <span class="plugin-badge badge-soon">Coming soon</span>
+                            </div>
+                        </div>
+                        <h3 class="plugin-title">Play Compliance Checker</h3>
+                        <p class="plugin-desc">Find out why Google Play will reject your build before you upload it, and which plugin is to blame. It scans your project, the Gradle output of your last Android build and the finished APK/AAB for 16 KB page size and zip alignment, target API level, Play Billing and manifest issues, then lists every problem with the file, the owner and the fix.</p>
+                        <div class="feature-tags">
+                            <span class="feature-tag">16 KB &amp; Zip Alignment</span>
+                            <span class="feature-tag">Scans the Built APK/AAB</span>
+                            <span class="feature-tag">Names the Vendor &amp; Fix</span>
+                            <span class="feature-tag">Target API &amp; Play Billing</span>
+                            <span class="feature-tag">Markdown &amp; JSON Reports</span>
+                            <span class="feature-tag">CI Mode</span>
+                        </div>
+                        <p class="plugin-req">Editor-only: nothing is added to your builds. Unity 2022.3 or newer with Android Build Support. Pure C#, no NDK, bundletool or Python needed.</p>
+                        <div class="plugin-price">
+                            <span class="price-amount">$24.99</span>
+                            <span class="price-note">planned launch price, one-time purchase</span>
+                        </div>
+                        <div>
+                            <!-- ASSET_STORE_URL_TODO(play-compliance): no store page yet -->
+                            <span class="btn btn-soon">Coming soon to the Unity Asset Store</span>
+                        </div>
+                    </div>
+                    <div class="plugin-visual">
+                        <img src="assets/plugins/play-compliance-cover.jpg" alt="Play Compliance Checker" class="cover-shot" loading="lazy" width="1100" height="733">
+                    </div>
+                </div>
+            </div>
             <!-- Placeholder for future plugins -->
             <div class="plugin-card fade-up" style="margin-top: 2rem; border-style: dashed; opacity: 0.5;">
                 <div class="plugin-info" style="padding: 2.5rem; text-align: center;">
@@ -756,6 +1051,7 @@
             <div class="footer-links">
                 <a href="#plugins">Plugins</a>
                 <a href="#support">Support</a>
+                <a href="privacy.html">Privacy</a>
                 <a href="mailto:pierceobrienbusiness@gmail.com">Email</a>
             </div>
         </div>
