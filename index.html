@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumin Plugins — Unity Tools Built from Production Experience</title>
-    <meta name="description" content="Production-tested Unity plugins by an indie developer. Every tool is built for and proven in a live application before being packaged for the Asset Store.">
+    <title>Lumin Plugins — Native Mobile Plugins for Unity</title>
+    <meta name="description" content="Native mobile plugins for Unity: background audio with lock-screen controls, Live Activities, sign-in and account deletion, store compliance and more. Built and tested in live apps.">
     <meta property="og:title" content="Lumin Plugins">
-    <meta property="og:description" content="Unity tools built from production experience.">
+    <meta property="og:description" content="Native mobile plugins for Unity, built from production experience.">
     <meta property="og:type" content="website">
-    <link rel="icon" type="image/png" href="assets/lumin_icon_256.png">
+    <link rel="icon" type="image/svg+xml" href="assets/lumin-mark.svg">
+    <link rel="icon" type="image/png" href="assets/lumin_mark_256.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -82,15 +83,15 @@
         }
 
         .nav-logo img {
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
+            width: 34px;
+            height: 34px;
         }
 
         .nav-logo span {
-            font-weight: 700;
-            font-size: 1.1rem;
-            letter-spacing: 0.5px;
+            font-weight: 600;
+            font-size: 1.15rem;
+            letter-spacing: -0.2px;
+            color: var(--orange-primary);
         }
 
         .nav-links {
@@ -147,12 +148,11 @@
         }
 
         .hero-logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 24px;
+            width: 112px;
+            height: 112px;
             margin-bottom: 2.5rem;
             animation: logoFloat 6s ease-in-out infinite;
-            box-shadow: 0 20px 60px rgba(232,133,74,0.15);
+            filter: drop-shadow(0 12px 40px rgba(232,133,74,0.25));
         }
 
         @keyframes logoFloat {
@@ -529,6 +529,41 @@
             border-radius: 27px;
         }
 
+        .video-shot {
+            position: relative;
+            width: 100%;
+            max-width: 520px;
+        }
+
+        .video-shot video {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 14px;
+            border: 1px solid var(--dark-border);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+            background: var(--dark-bg);
+        }
+
+        .video-shot figcaption {
+            margin-top: 0.75rem;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        .video-shot figcaption a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        .video-shot figcaption a:hover { color: var(--orange-primary); }
+
+        .btn-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
         .cover-shot {
             position: relative;
             display: block;
@@ -711,7 +746,7 @@
     <!-- Nav -->
     <nav id="nav">
         <a href="#" class="nav-logo">
-            <img src="assets/lumin_icon_256.png" alt="Lumin Plugins">
+            <img src="assets/lumin-mark.svg" alt="">
             <span>Lumin Plugins</span>
         </a>
         <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
@@ -719,17 +754,18 @@
             <li><a href="#plugins">Plugins</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#support">Support</a></li>
+            <li><a href="https://www.youtube.com/@LuminPlugins" target="_blank" rel="noopener">YouTube</a></li>
         </ul>
     </nav>
 
     <!-- Hero -->
     <section class="hero">
-        <img src="assets/lumin_plugins_logo.png" alt="Lumin Plugins" class="hero-logo">
-        <h1>Unity tools <span class="accent">built from<br>production experience</span></h1>
-        <p class="hero-sub">Every plugin we sell was built for and proven in a live application before being packaged for the Asset Store. No prototypes, no guesswork — real solutions to real problems.</p>
+        <img src="assets/lumin-mark.svg" alt="Lumin Plugins" class="hero-logo">
+        <h1>Native mobile plugins <span class="accent">for Unity</span></h1>
+        <p class="hero-sub">Lock-screen audio, Live Activities, sign-in and the store rules that trip up mobile games. Every plugin is built and tested in live apps before it reaches the Asset Store.</p>
         <div class="hero-cta">
             <a href="#plugins" class="btn btn-primary">Browse Plugins</a>
-            <a href="#support" class="btn btn-ghost">Get Support</a>
+            <a href="https://www.youtube.com/@LuminPlugins" target="_blank" rel="noopener" class="btn btn-ghost">Watch the demos</a>
         </div>
     </section>
 
@@ -750,6 +786,8 @@
             -->
             <div class="plugin-index fade-up" role="navigation" aria-label="Plugin list">
                 <a href="#background-audio-ios" class="plugin-chip"><img src="assets/plugins/background-audio-ios-icon.png" alt="">Background Audio for iOS</a>
+                <a href="#background-audio-android" class="plugin-chip"><img src="assets/plugins/background-audio-android-icon.png" alt="">Background Audio for Android</a>
+                <a href="#background-audio-bundle" class="plugin-chip"><img src="assets/plugins/background-audio-bundle-icon.png" alt="">Background Audio Bundle</a>
                 <a href="#force-updater" class="plugin-chip"><img src="assets/plugins/force-updater-icon.png" alt="">Force Updater</a>
                 <a href="#review-kit" class="plugin-chip"><img src="assets/plugins/review-kit-icon.png" alt="">Review Kit</a>
                 <a href="#sign-in" class="plugin-chip"><img src="assets/plugins/sign-in-icon.png" alt="">Sign-In + Account Deletion</a>
@@ -757,7 +795,7 @@
                 <a href="#play-compliance" class="plugin-chip"><img src="assets/plugins/play-compliance-icon.png" alt="">Play Compliance Checker</a>
             </div>
 
-            <!-- Product: Background Audio for iOS (live, v1.0.1 update pending) -->
+            <!-- Product: Background Audio for iOS (live, 1.0.2) -->
             <div class="plugin-card fade-up" id="background-audio-ios">
                 <div class="plugin-card-inner">
                     <div class="plugin-info">
@@ -778,18 +816,87 @@
                             <span class="feature-tag">Zero Xcode Setup</span>
                             <span class="feature-tag">Unity 2022.3 &amp; Unity 6</span>
                         </div>
-                        <p class="plugin-req">New in 1.0.1: Unity 2022.3 LTS support, works with Domain Reload disabled, and a new UI Player demo scene built with TextMeshPro. Requires iOS 14+.</p>
+                        <p class="plugin-req">Unity 2022.3 LTS or Unity 6, iOS 14+. Works with Domain Reload disabled. Two demo scenes with TextMeshPro UI.</p>
                         <div class="plugin-price">
                             <span class="price-note">One-time purchase. See the current price on the Asset Store.</span>
                         </div>
-                        <div>
+                        <div class="btn-row">
                             <a href="https://assetstore.unity.com/packages/tools/audio/background-audio-for-ios-371508" target="_blank" rel="noopener" class="btn btn-primary">View on Asset Store →</a>
+                            <a href="https://youtu.be/mkJX80jQOMw" target="_blank" rel="noopener" class="btn btn-ghost">Watch the trailer</a>
                         </div>
                     </div>
                     <div class="plugin-visual">
-                        <figure class="phone-shot">
-                            <img src="assets/plugins/background-audio-ios-demo.jpg" alt="Background Audio demo scene on iPhone, playing a track" loading="lazy" width="414" height="900">
+                        <figure class="video-shot">
+                            <video src="assets/video/background-audio-ios-loop.mp4" poster="assets/video/background-audio-ios-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Background Audio for iOS: the demo app playing, then the iPhone lock screen with Now Playing controls"></video>
+                            <figcaption><a href="https://youtu.be/mkJX80jQOMw" target="_blank" rel="noopener">Full trailer on YouTube →</a></figcaption>
                         </figure>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product: Background Audio for Android (live, 1.0.1) -->
+            <div class="plugin-card fade-up" id="background-audio-android">
+                <div class="plugin-card-inner">
+                    <div class="plugin-info">
+                        <div class="plugin-head">
+                            <img src="assets/plugins/background-audio-android-icon.png" alt="" class="plugin-icon">
+                            <div class="badge-row">
+                                <span class="plugin-badge"><span>●</span> Android</span>
+                                <span class="plugin-badge badge-live">Available now</span>
+                            </div>
+                        </div>
+                        <h3 class="plugin-title">Background Audio for Android</h3>
+                        <p class="plugin-desc">The same fix for Android. Your track plays in a native foreground service, so it keeps going when the phone locks or the player switches apps, with play and pause on the lock screen and in the notification shade. Start it with one line of C#; progress callbacks drive your own Unity UI.</p>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Lock Screen &amp; Notification Controls</span>
+                            <span class="feature-tag">Native Foreground Service</span>
+                            <span class="feature-tag">Streams from a URL</span>
+                            <span class="feature-tag">Audio Focus &amp; Headphone Unplug</span>
+                            <span class="feature-tag">Progress Callbacks</span>
+                            <span class="feature-tag">Unity 2022.3 &amp; Unity 6</span>
+                        </div>
+                        <p class="plugin-req">Built for and shipped in a live app. Needs a custom Gradle template with the ExoPlayer dependency; the included setup guide walks through it.</p>
+                        <div class="plugin-price">
+                            <span class="price-note">One-time purchase. See the current price on the Asset Store.</span>
+                        </div>
+                        <div class="btn-row">
+                            <a href="https://assetstore.unity.com/packages/slug/370892" target="_blank" rel="noopener" class="btn btn-primary">View on Asset Store →</a>
+                            <a href="https://youtu.be/F7iohVYzGpM" target="_blank" rel="noopener" class="btn btn-ghost">Watch the trailer</a>
+                        </div>
+                    </div>
+                    <div class="plugin-visual">
+                        <figure class="video-shot">
+                            <video src="assets/video/background-audio-android-loop.mp4" poster="assets/video/background-audio-android-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Background Audio for Android: the demo app playing, then the lock screen and notification shade media controls"></video>
+                            <figcaption><a href="https://youtu.be/F7iohVYzGpM" target="_blank" rel="noopener">Full trailer on YouTube →</a></figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product: Background Audio Bundle (in review) -->
+            <div class="plugin-card fade-up" id="background-audio-bundle">
+                <div class="plugin-card-inner">
+                    <div class="plugin-info">
+                        <div class="plugin-head">
+                            <img src="assets/plugins/background-audio-bundle-icon.png" alt="" class="plugin-icon">
+                            <div class="badge-row">
+                                <span class="plugin-badge"><span>●</span> iOS &amp; Android</span>
+                                <span class="plugin-badge badge-soon">Coming soon</span>
+                            </div>
+                        </div>
+                        <h3 class="plugin-title">Background Audio Bundle</h3>
+                        <p class="plugin-desc">Both Background Audio packages in one purchase, for apps that ship on iOS and Android. Buy the bundle and claim each package from its store page at no extra cost. Already own one of them? Upgrade to the bundle for the difference.</p>
+                        <div class="plugin-price">
+                            <span class="price-amount">$24.99</span>
+                            <span class="price-note">planned price for both packages, one-time purchase</span>
+                        </div>
+                        <div>
+                            <!-- ASSET_STORE_URL_TODO(background-audio-bundle): in review -->
+                            <span class="btn btn-soon">Coming soon to the Unity Asset Store</span>
+                        </div>
+                    </div>
+                    <div class="plugin-visual">
+                        <img src="assets/plugins/background-audio-bundle-cover.jpg" alt="Background Audio Bundle: iPhone and Android lock screens side by side" class="cover-shot" loading="lazy" width="1100" height="733">
                     </div>
                 </div>
             </div>
@@ -817,11 +924,11 @@
                         </div>
                         <p class="plugin-req">Unity 2022.3 or newer (Unity 6 supported). No third-party SDK bundled: host a small JSON file, or plug in Unity Remote Config or Firebase.</p>
                         <div class="plugin-price">
-                            <span class="price-amount">$14.99</span>
-                            <span class="price-note">planned launch price, one-time purchase</span>
+                            <span class="price-amount">$15.00</span>
+                            <span class="price-note">planned price, one-time purchase</span>
                         </div>
                         <div>
-                            <!-- ASSET_STORE_URL_TODO(force-updater): no store page yet -->
+                            <!-- ASSET_STORE_URL_TODO(force-updater): in review -->
                             <span class="btn btn-soon">Coming soon to the Unity Asset Store</span>
                         </div>
                     </div>
@@ -856,7 +963,7 @@
                         </div>
                         <p class="plugin-req">Policy-safe by design: no "Enjoying the app?" pre-prompt and no review gating. Unity 2022.3 or newer (Unity 6 supported).</p>
                         <div class="plugin-price">
-                            <span class="price-amount">$14.99</span>
+                            <span class="price-amount">$15.00</span>
                             <span class="price-note">planned price, one-time purchase</span>
                         </div>
                         <div>
@@ -934,7 +1041,7 @@
                         </div>
                         <p class="plugin-req">iOS 16.2+ for Live Activities, iOS 17+ for widgets. Building needs a Mac with Xcode 16 and a paid Apple Developer account. Unity 2022.3 or newer.</p>
                         <div class="plugin-price">
-                            <span class="price-amount">$39.99</span>
+                            <span class="price-amount">$34.99</span>
                             <span class="price-note">planned price, one-time purchase</span>
                         </div>
                         <div>
@@ -974,7 +1081,7 @@
                         <p class="plugin-req">Editor-only: nothing is added to your builds. Unity 2022.3 or newer with Android Build Support. Pure C#, no NDK, bundletool or Python needed.</p>
                         <div class="plugin-price">
                             <span class="price-amount">$24.99</span>
-                            <span class="price-note">planned launch price, one-time purchase</span>
+                            <span class="price-note">planned price, one-time purchase</span>
                         </div>
                         <div>
                             <!-- ASSET_STORE_URL_TODO(play-compliance): no store page yet -->
@@ -1040,6 +1147,16 @@
                     <p>We build tools based on real developer needs. If you've got a suggestion or a pain point we should know about, we'd genuinely like to hear it. Drop us a line or leave a review on the Asset Store.</p>
                     <a href="mailto:pierceobrienbusiness@gmail.com" class="support-link">Send Feedback →</a>
                 </div>
+                <div class="support-block fade-up">
+                    <h3>Demos &amp; Guides</h3>
+                    <p>Short trailers and setup walkthroughs for each plugin are on our YouTube channel.</p>
+                    <a href="https://www.youtube.com/@LuminPlugins" target="_blank" rel="noopener" class="support-link">youtube.com/@LuminPlugins →</a>
+                </div>
+                <div class="support-block fade-up">
+                    <h3>All Our Packages</h3>
+                    <p>See everything we've published, with reviews and current prices, on our Unity Asset Store publisher page.</p>
+                    <a href="https://assetstore.unity.com/publishers/141398" target="_blank" rel="noopener" class="support-link">Lumin Plugins on the Asset Store →</a>
+                </div>
             </div>
         </div>
     </section>
@@ -1051,6 +1168,8 @@
             <div class="footer-links">
                 <a href="#plugins">Plugins</a>
                 <a href="#support">Support</a>
+                <a href="https://www.youtube.com/@LuminPlugins" target="_blank" rel="noopener">YouTube</a>
+                <a href="https://assetstore.unity.com/publishers/141398" target="_blank" rel="noopener">Asset Store</a>
                 <a href="privacy.html">Privacy</a>
                 <a href="mailto:pierceobrienbusiness@gmail.com">Email</a>
             </div>
